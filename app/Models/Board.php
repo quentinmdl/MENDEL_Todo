@@ -22,7 +22,7 @@ class Board extends Model
 
 
     /**
-     * Renvoie tous les utilisateurs qui sont asssociés au board
+     * Renvoie tous les utilisateurs qui sont associés au board, c'est à dire les participants
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users()
