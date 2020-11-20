@@ -9,6 +9,21 @@ class Board extends Model
 {
     use HasFactory;
 
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::created(function ($board) {
+            $board_user = new BoardUser(); 
+            $board_user->board_id = $board->id; 
+            $board_user->user_id = $board->user_id; 
+            $board_user->save();
+        });
+    }
+
 
     /**
      * Renvoie l'utilisateur propriétaire du board (celui qui l'a créé)
